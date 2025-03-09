@@ -2,7 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import connectDB from './config/database.mjs';
 import mongoose from 'mongoose';
-import sendEmail from './controllers/emailController.mjs';
+import sendEmail from './routes/emailRoute.mjs';
 
 // Connect to the MongoDB database
 connectDB();
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.send('Email Security');
 });
 
-app.post('/send', sendEmail);
+app.use('/emailer', sendEmail);
 
 mongoose.connection.once('open', () => {
     console.log('MongoDB connected...');

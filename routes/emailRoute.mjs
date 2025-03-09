@@ -1,6 +1,9 @@
 import Email from "../model/Email.mjs";
+import express from 'express';
 
-const sendEmail = async (req, res) => {
+const sendEmail = express.Router();
+
+sendEmail.post('/send', async (req, res) => {
     const {email, cc, subject, content} = req.body;
     if (!email || !subject || !content) {
         return res.status(400).json({ message: 'Missing required fields' });
@@ -17,6 +20,6 @@ const sendEmail = async (req, res) => {
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
-}
+})
 
 export default sendEmail;
