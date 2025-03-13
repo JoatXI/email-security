@@ -8,7 +8,7 @@ async function mailer(eDetails) {
             body: JSON.stringify(eDetails)
         });
         
-        if (res.status == 401) {
+        if (res.status == 400) {
             alert('Invalid details provided')
         } else if (res.status == 201) {
             alert('Email sent successfully')

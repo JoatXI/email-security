@@ -54,3 +54,10 @@ body {
   width: 600px;
   resize: none;
 }
+
+#warning-message {
+  display: none;
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
