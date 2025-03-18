@@ -11,11 +11,20 @@ const sensitiveKeywords = [
     "security question", "passport number", "one-time password"
 ];
 
+const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i;
+const phonePattern = /\b\d{3}[-\s]?\d{4}[-\s]?\d{4}\b/;
+const creditCardPattern = /\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b/;
+const sortCodePattern = /\b\d{2}[-\s]?\d{2}[-\s]?\d{2}\b/;
+
 function senseInfo(emailBody) {
     if (!emailBody) return false;
     const lowerCaseBody = emailBody.toLowerCase();
 
-    return sensitiveKeywords.some(keyword => lowerCaseBody.includes(keyword.toLowerCase()));
+    const detectedKeyword = sensitiveKeywords.some(keyword => lowerCaseBody.includes(keyword.toLowerCase()));
+    if (detectedKeyword) return true;
+    
+    const patterns = [emailPattern, phonePattern, creditCardPattern, sortCodePattern];
+    return patterns.some(pattern => pattern.test(emailBody));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
