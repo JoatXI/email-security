@@ -4,6 +4,8 @@ With the rise of cyber threats, ensuring secure email communication is more crit
 ## Table of Contents
 - [Tech Stack](#tech-stack)
 - [Application Features](#application-features)
+- [Figma Design](#figma-design)
+- [Gantt Chart](#gantt-chart)
 - [Team Members](#team-members)
 
 ## Tech Stack
@@ -49,7 +51,12 @@ With the rise of cyber threats, ensuring secure email communication is more crit
    
 8. **Secure Email Prompt**
    - Notifies the user if the email requires secure sending based on detected sensitive keywords or word count.
+  
+## Gantt Chart
+Please [click here](https://github.com/JoatXI/email-security/wiki/Gantt-Chart) to view our Gantt chart, demonstrating our project timeline from start to finish
 
+## Figma Design
+Please [click here](https://www.figma.com/design/SBstIIv8TqVylPfA0Ad97U/Web-Mailock?node-id=77-2&t=FutUjifxiPemzPSf-1) to view our Figma Designs.
 
 ## Team Members
 - [Ben Fenwick](https://github.com/benfenwick0)
