@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "nodemon server.mjs",
+    "start": "node server.mjs",
     "dev": "nodemon server.mjs --watch."
   },
   "dependencies": {
@@ -12,5 +12,8 @@
   },
   "devDependencies": {
     "cypress": "^14.2.0"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
