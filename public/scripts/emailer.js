@@ -22,15 +22,15 @@ function isEmail(emailCheck) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailCheck);
 }
 
-document.getElementById('send').addEventListener('click', () => {
-    const toEmail = document.getElementById('to-email')
-    const carboncopy = document.getElementById('cc-email')
+document.getElementById('send').addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const toEmail = document.getElementById('email')
     const emailSubject = document.getElementById('subject')
     const emailContent = document.getElementById('area')
 
     const details = {
         email: toEmail.value,
-        cc: carboncopy.value,
         subject: emailSubject.value,
         content: emailContent.value
     }
@@ -38,28 +38,46 @@ document.getElementById('send').addEventListener('click', () => {
     let valid = true;
 
     if (details.email == "") {
-        alert('Email address is required!');
+        setErrorFor(toEmail, "Email cannot be empty!");
         valid = false;
     } else if (!isEmail(details.email)) {
-        alert(`Email: ${details.email} Is not a valid email address!`);
+        setErrorFor(toEmail, "Not a valid email!");
         valid = false;
+    } else {
+        setSuccessFor(toEmail);
     }
 
     if (details.subject == "") {
-        alert('Email Subject is required!');
+        setErrorFor(emailSubject, "Subject is required!");
         valid = false;
+    } else {
+        setSuccessFor(emailSubject);
     }
 
     if (details.content == "") {
-        alert('Email box cannot be empty');
+        setErrorFor(emailContent, "Message cannot be empty!");
         valid = false;
+    } else {
+        setSuccessFor(emailContent);
     }
 
     if (valid) {
         mailer(details);
         toEmail.value = '';
-        carboncopy.value = '';
         emailSubject.value = '';
         emailContent.value = '';
     }
 });
+
+function setErrorFor(input, message) {
+    const formBox = input.parentElement;
+    const small = formBox.querySelector("small");
+
+    small.innerText = message;
+    formBox.className = "form-box error";
+}
+
+function setSuccessFor(input) {
+    const formBox = input.parentElement;
+    formBox.className = "form-box success";
+}

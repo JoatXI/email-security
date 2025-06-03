@@ -7,9 +7,6 @@ const EmailSchema = new Schema({
         type: String,
         required: true,
     },
-    cc: {
-        type: String
-    },
     subject: {
         type: String,
         required: true

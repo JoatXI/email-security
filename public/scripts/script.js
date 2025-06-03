@@ -30,6 +30,7 @@ function senseInfo(emailBody) {
 document.addEventListener('DOMContentLoaded', () => {
     const emailBody = document.getElementById('area');
     const sendButton = document.getElementById('send');
+    const form = document.getElementById('form');
     const warningMessage = document.getElementById('warning-message');
 
     emailBody.addEventListener('input', () => {
@@ -37,9 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (senseInfo(emailBody.value)) {
             warningMessage.style.display = 'block';
             sendButton.disabled = true;
+            sendButton.style.cursor = 'default'
+            sendButton.style.backgroundColor = 'gray'
+            sendButton.style.borderColor = 'gray'
+            form.style.paddingBottom = '.875rem'
+
         } else {
             warningMessage.style.display = 'none';
             sendButton.disabled = false;
+            sendButton.style.cursor = 'pointer'
+            sendButton.style.backgroundColor = '#043a45'
+            sendButton.style.borderColor = '#043a45'
+            form.style.paddingBottom = '3rem'
         }
     });
 });

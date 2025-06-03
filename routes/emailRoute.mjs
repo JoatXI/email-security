@@ -4,14 +4,13 @@ import express from 'express';
 const sendEmail = express.Router();
 
 sendEmail.post('/send', async (req, res) => {
-    const {email, cc, subject, content} = req.body;
+    const {email, subject, content} = req.body;
     if (!email || !subject || !content) {
         return res.status(400).json({ message: 'Missing required fields' });
     }
     try {
         const result = await Email.insertOne({
             "email": email,
-            "cc": cc,
             "subject": subject,
             "content": content
         });

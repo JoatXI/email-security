@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Email Security</title>
-  </head>
-  <body>
-    <nav class="nav">
-      <a href="email-wordcount.html">Email Word-Count</a>
-      <a href="email-wordcheck.html">Email Sign Off Keyword</a>
-    </nav>
-  </body>
+</head>
+<body>
+    <section>
+        <div class="about">
+            <span>This demo was developed in collaboration with <a href="https://www.beyondencryption.com" target="_blank" class="prototype">Beyond Encryption</a>.</span>
+            <span>Creating a concept for their Microsoft Outlook ADD-IN - <a href="https://www.beyondencryption.com/mailock/downloads" target="_blank" class="prototype">Mailock</a>.</span>
+            <span>Enabling users to send secured emails with features that includes;</span>
+            <span>Sensitive data detection in real-time and Encryption options.</span>
+            <span class="last">The Prototype Design can be found <a href="https://www.figma.com/design/SBstIIv8TqVylPfA0Ad97U/Web-Mailock?node-id=0-1&p=f" target="_blank" class="prototype">here</a></span>
+        </div>
+        <hr>
+        <div class="wrapper">
+            <div class="error"></div>
+            <form class="form-text" id="form">
+                <div class="form-title">
+                    <h3>MAILOCK DEMO</h3>
+                </div>
+                <hr>
+                <div class="form-box">
+                    <input class="email-input" type="email" name="email" id="email" placeholder="example@gmail.com">
+                    <small>Error message!</small>
+                </div>
+                <div class="form-box">
+                    <input class="subject-input" type="text" name="subject" id="subject" placeholder="Enter subject">
+                    <small>Error message!</small>
+                </div>
+                <div class="form-box">
+                    <textarea class="message-input" name="message" id="area" placeholder="Start typing.."></textarea>
+                    <small>Error message!</small>
+                </div>
+                <button class="submit-button" id="send">SEND</button>
+                <div id="warning-message">
+                    Your email contains sensitive data. Consider email encryption before sending.
+                </div>
+            </form>
+            <div id="result">
+                Word Count: <span id="words">0</span> Characters: <span id="char">0</span>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="scripts/index.js"></script>
+    <script type="module" src="scripts/emailer.js"></script>
+    <script type="module" src="scripts/script.js"></script>
+</body>
 </html>
