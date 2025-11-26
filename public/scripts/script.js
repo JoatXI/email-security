@@ -4,11 +4,12 @@ const sensitiveKeywords = [
     "card number", "CVV", "CVC", "expiration date", "expiry date", 
     "security code", "username", "user name", "login id", "password", 
     "passcode", "PIN", "login credentials", "security question", 
-    "security answer", "social security number", "SSN", 
+    "security answer", "social security number", "SSN", "security clearance",
     "national insurance number", "driver's license number", 
     "passport number", "tax identification number", "TIN", "bank", 
     "confidential", "private", "sensitive", "credit-card", "otp", 
-    "security question", "passport number", "one-time password"
+    "security question", "passport number", "one-time password",
+    "account", "phone", "insurance", "sort code", "NI", "NI number"
 ];
 
 const emailPattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i;
